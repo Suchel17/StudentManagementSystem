@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
 		
 <section class="vh-100 gradient-custom enroll mt-2" id="enroll">
  	<div class="container h-100">
- 		<div class="row justify-content-center h-100 w-75">
+ 		<div class="row justify-content-center h-75 w-75">
  			<div class="col-12 col-lg-9 col-xl-7">
  				<div class="card shadow-2-strong card-registration mt-0" style="border-radius: 15px;">
  					<div class="card-body mt-0">
@@ -59,7 +60,7 @@
  									<div class="row " >
 										<div class="col-md-6 mb-2">
  											<div class="form-outline">
- 												<input type="text" id="firstName" class="form-control form-control-sm" name="studentFullNam"/>
+ 												<input type="text" id="firstName" class="form-control form-control-sm" name="studentFullName"/>
  												<label class="form-label" for="firstName">First Full Name</label>
  											</div>
  										</div>
@@ -82,7 +83,7 @@
 
  									<div class="col-md-6 mb-2 pb-2">
  										<div class="form-outline">
- 											<input type="text" id="college" class="form-control form-control-sm" name="studentCollageName"/>
+ 											<input type="text" id="college" class="form-control form-control-sm" name="studentCollegeName"/>
  											<label  class="form-label" for="college" >Student Collage Name</label>
  										</div>
 									</div>
@@ -132,18 +133,10 @@
  										<div class="col">
  											<select class="select form-control-sm" name="batchNumber">
  												<option value="#" disabled>Select Batch Number</option>
- 												<option value="FDJ-160">FDJ-160</option>
- 												<option value="REG-160">REG-160</option>
-												<option value="FDJ-161">FDJ-161</option>
- 												<option value="REG-161">REG-162</option>
- 												<option value="FDJ-162">FDJ-162</option>
- 												<option value="REG-162">REG-162</option>
- 												<option value="FDJ-163">FDJ-163</option>
- 												<option value="REG-163">REG-163</option>
- 												<option value="FDJ-164">FDJ-164</option>
- 												<option value="REG-164">REG-164</option>
- 												<option value="FDJ-165">FDJ-165</option>
- 												<option value="REG-165">REG-165</option>
+ 												<option value="FDJ-196">FDJ-196</option>
+ 												<option value="REG-198">REG-198</option>
+												<option value="FDJ-198">FDJ-198</option>
+ 												<option value="REG-196">REG-196</option>
  											</select>
      	  									<label class="form-label select-label">Batch Number</label>
  										</div>
@@ -162,9 +155,53 @@
  
 		</section>
 				<section class="view" style="height:530px" id="view">
-				<h1>View Student</h1>
+					<h1>View Student</h1>
+				<div class="container">
+					<table class="table table-dark table-striped" style="font-size: small">
+							<thead>
+ 								<tr>
+ 									<th>ID</th>
+ 									<th>Student Name</th>
+ 									<th>Student Email</th>
+ 									<th>Age</th>
+ 									<th>Collage Name</th>
+ 									<th>Course Name</th>
+ 									<th>Bath No</th>
+ 									<th>Mode</th>
+ 									<th>Fess Recived</th>
+ 									<th>Actions</th>
+ 									</tr>
+ 							</thead>
+ 							
+ 							<tbody>
+ 								<c:forEach items="${data}" var="s">
+ 									<tr>
+ 										<td>${s.studentId}</td>
+ 										<td>${s.studentFullName}</td>
+ 										<td>${s.studentEmail}</td>
+ 										<td>${s.studentAge}</td>
+ 										<td>${s.studentCollegeName}</td>
+ 										<td>${s.studentCourse}</td>
+ 										<td>${s.batchNumber}</td>
+ 										<td>${s.batchMode}</td>
+ 										<td>${s.feesPaid}</td>
+ 										<td>
+ 										
+ 										<div class="btn-group btn-group-sm" role="group" aria-label="...">
+ 											<button class="btn btn-outline-success">PayFees</button>
+											<button class="btn btn-outline-primary">ShiftBatch</button>
+											<a class="btn btn-outline-danger" href="delete?rollno=${s.studentId}">Remove</a>
+										</div>
+				
+									</td>
+
+ 								 </tr>
+ 							 </c:forEach>
+
+ 							</tbody>
+
+ 				</table>
+			</div>	
+						
 		</section>
- 	</div>
-		
-</body>
 </html>
