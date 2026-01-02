@@ -6,8 +6,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<style type="text/css">
+ .body{
+    background-image: url("images/loginbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+</style>
+
 </head>
-<body class="bg-light">
+<body class="body">
 
 <div class="card bg-dark">
  	<marquee class="text-danger mb-3 fs-1 "> ${login_fail} </marquee>

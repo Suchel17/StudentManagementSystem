@@ -65,4 +65,23 @@ public class StudentServiceImpl implements StudentServicei {
 		
 	}
 
+	@Override
+	public Student getforBatchShiftingStudent(int studentId) {
+		
+		return sr.findById(studentId).get();
+	}
+
+	@Override
+	public void newbatchShift(int studentId, String batchNumber) {
+		
+		 Student s = sr.findById(studentId).get();
+		s.setBatchNumber(batchNumber);
+		
+		sr.save(s);
+	}
+	
+	
+
+	
+
 }

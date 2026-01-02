@@ -214,8 +214,8 @@
  										<td>
  										
  										<div class="btn-group btn-group-sm" role="group" aria-label="...">
- 											<a href="fees?rollno=${s.studentId}" class="btn btn-outline-success">PayFees</a>
-											<button class="btn btn-outline-primary">ShiftBatch</button>
+ 											<a class="btn btn-outline-success" href="fees?rollno=${s.studentId}">PayFees</a>
+											<a class="btn btn-outline-primary" href="shift?rollno=${s.studentId}" >ShiftBatch</a>
 											<a class="btn btn-outline-danger" href="delete?rollno=${s.studentId}">Remove</a>
 										</div>
 				

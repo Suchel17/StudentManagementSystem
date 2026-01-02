@@ -100,5 +100,25 @@ public class AdminController {
 		return "adminscreen";
 	}
 	
+	@RequestMapping("/shift")
+	public String shiftBatch(@RequestParam("rollno") int studentId, Model m) {
+		
+		Student stu = ssi.getforBatchShiftingStudent(studentId);
+		m.addAttribute("stu", stu);
+		
+		return "shiftbatch";
+	}
+	
+	@RequestMapping("/shiftbatch")
+	public String newBatch(@RequestParam("studentId") int studentId, @RequestParam("batchNumber") String batchNumber, Model m) 
+	{
+		ssi.newbatchShift(studentId, batchNumber);
+		
+		List<Student> list = ssi.getAllStudents();
+		m.addAttribute("data", list);
+		return "adminscreen";
+	}
+	
+	
 	
 }
